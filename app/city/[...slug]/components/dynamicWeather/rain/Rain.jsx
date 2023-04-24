@@ -20,7 +20,7 @@ export default Rain;
 
 function makeRainDrops(width, height) {
   const particles = [];
-  for (let i = 0; i < width; i += 10) {
+  for (let i = 0; i < width; i += 15) {
     particles.push(
       <span
         className={styles.drop}
