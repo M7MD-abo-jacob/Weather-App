@@ -1,0 +1,46 @@
+.week {
+    overflow: scroll;
+    margin-top: 5px;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+}
+
+.week {
+    background-color: #003d;
+    padding: 0.3rem 0.4rem;
+    margin-bottom: 0.2rem;
+    border-radius: 10px;
+}
+
+.week>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.week>p {
+    padding-bottom: 0.3rem;
+    display: none;
+    margin-inline: 1rem;
+}
+
+@supports (backdrop-filter: blur()) {
+    .week {
+        background-color: #0035;
+        backdrop-filter: blur(4px);
+        border: 1px solid #87cefa55;
+    }
+    .week>div>* {
+        border: 1px solid #87cefa55;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .week>div {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .week>p {
+        display: block;
+        text-align: start;
+    }
+}

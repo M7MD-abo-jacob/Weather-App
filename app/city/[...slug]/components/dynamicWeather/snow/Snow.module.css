@@ -1,0 +1,27 @@
+.snow {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.flake {
+    position: absolute;
+    color: #defd;
+    left: var(--particle-left);
+    top: var(--particle-top);
+    font-size: var(--particle-size);
+    border-radius: 50%;
+    animation: snowing linear infinite;
+    animation-duration: calc(90s / var(--particle-sp));
+    transform-origin: bottom;
+    z-index: -99;
+}
+
+@keyframes snowing {
+    0% {
+        transform: translate(0) rotate(0deg);
+    }
+    100% {
+        transform: translate(30px, var(--h)) rotate(360deg);
+    }
+}

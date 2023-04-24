@@ -1,0 +1,37 @@
+.today_inner {
+    padding: 0.3rem 0.4rem;
+    margin-bottom: 0.2rem;
+    border-radius: 10px;
+}
+
+.today_inner>p {
+    padding-bottom: 0.3rem;
+    display: none;
+    margin-inline: 1rem;
+}
+
+.today_inner {
+    background-color: #003d;
+}
+
+@supports (backdrop-filter: blur()) {
+    .today_inner {
+        background-color: #0035;
+        backdrop-filter: blur(4px);
+        border: 1px solid #87cefa55;
+    }
+    .today_inner1>div,
+    .today_inner2>div>div {
+        border: 1px solid #87cefa55;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .today_inner:first-child {
+        width: 75%;
+    }
+    .today_inner>p {
+        display: block;
+        text-align: start;
+    }
+}
