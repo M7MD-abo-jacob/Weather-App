@@ -35,7 +35,7 @@ function DynamicWeather({ data }) {
     <div className={styles.dynamic_weather}>
       {/* <div className={styles.container}></div> */}
       {/* you can un-comment Rain or Snow components to see them in action */}
-      <Rain />
+      {/* <Rain /> */}
       {/* <Snow /> */}
       {status(statusCode)}
       {/* back static clouds */}
