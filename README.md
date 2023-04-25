@@ -17,7 +17,7 @@
 - OpenWeatherMap api
 - Teleport cities api
 
-## Check it out [here.](https://weather-app-next13.vercel.app/)
+## Check it out [here.](https://dynamic-weather-app-next13.vercel.app/)
 
 ## Check out [my portfolio](https://mohammad-kikhia.vercel.app/) for more.
 
