@@ -43,12 +43,12 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
 };
-interface CustomRequest extends Request {
-  params: {
-    [lang: string]: string;
-  };
-}
-export async function generateMetadata(req: CustomRequest) {
+// interface CustomRequest extends Request {
+//   params: {
+//     [lang: string]: string;
+//   };
+// }
+export async function generateMetadata() {
   // const lang = req?.params?.lang || 'en';
   // TODO: trans
   // const dictionary = await getDictionary(lang, ['home']);
