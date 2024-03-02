@@ -6,7 +6,6 @@ import { CurrentWeather, DaysForcast, HoursForcast } from '../../types';
 export default async function getWeatherStatus(slug: string) {
   const BASE_URL = new URL('https://api.openweathermap.org/data/2.5/');
   let newSlug = decodeURIComponent(slug);
-  console.log('get weather func slug: ', newSlug);
   if (!slug.includes(',')) {
     newSlug = slug.replace('+', ',+');
   }

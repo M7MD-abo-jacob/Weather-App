@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import getCitiesList from '@/lib/getCitiesList';
 import styles from './Search.module.css';
-import { City } from '../../../../../types';
+import { City } from '../../../../types';
 
 export default function Search() {
   const [searchValue, setSearchValue] = useState('');
@@ -22,7 +22,6 @@ export default function Search() {
     // else, search for matching cities
     const getData = setTimeout(async () => {
       const res = await getCitiesList(searchValue);
-      console.log('res', res);
       setSearchResult(res);
     }, delay);
 
@@ -30,7 +29,6 @@ export default function Search() {
     return () => clearTimeout(getData);
   }, [searchValue]);
 
-  console.log('searchResult', searchResult);
   return (
     <div>
       <input

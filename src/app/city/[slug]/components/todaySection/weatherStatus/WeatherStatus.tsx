@@ -1,7 +1,7 @@
 import { FaWind } from 'react-icons/fa';
 import { BsDropletFill } from 'react-icons/bs';
 import styles from './WeatherStatus.module.css';
-import { CurrentWeather } from '../../../../../../../../types';
+import { CurrentWeather } from '../../../../../../../types';
 
 function WeatherStatus({ data }: { data: CurrentWeather }) {
   return (

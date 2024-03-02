@@ -1,35 +1,19 @@
 import React, { ReactNode } from 'react';
-import LanguageChanger from '@/components/shared/LanguageChanger';
-import i18nConfig from '@/i18nConfig';
-import { dir } from 'i18next';
 import Header from './components/Header';
-import '../globals.css';
+import './globals.css';
 import { Viewport } from 'next';
-
-export function generateStaticParams() {
-  return i18nConfig.locales.map((locale) => ({ locale }));
-}
-
-interface Params {
-  locale: string;
-}
 
 interface RootLayoutProps {
   children: ReactNode;
-  params: Params;
 }
 
-const RootLayout: React.FC<RootLayoutProps> = ({
-  children,
-  params: { locale },
-}) => {
+const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
-    <html lang={locale} dir={dir(locale)}>
+    <html lang="en" dir="ltr">
       <body className="">
         <Header />
         {children}
       </body>
-      {/* <LanguageChanger /> */}
     </html>
   );
 };
@@ -43,19 +27,10 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
 };
-// interface CustomRequest extends Request {
-//   params: {
-//     [lang: string]: string;
-//   };
-// }
 export async function generateMetadata() {
-  // const lang = req?.params?.lang || 'en';
-  // TODO: trans
-  // const dictionary = await getDictionary(lang, ['home']);
-  // const metaData = dictionary.home.common.metadata;
   return {
-    title: 'title',
-    description: 'description',
+    title: 'Dynamic Weather App | Mohammad Kikhia',
+    description: 'TODO:',
     robots: {
       index: true,
       follow: true,
