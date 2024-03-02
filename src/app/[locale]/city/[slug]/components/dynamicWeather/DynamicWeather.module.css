@@ -1,0 +1,330 @@
+.dynamic_weather {
+  overflow: hidden;
+  position: absolute;
+  margin: 0 auto;
+  inset: 0 0 0;
+  max-width: 1200px;
+}
+
+@media screen and (min-width: 1200px) {
+  .dynamic_weather {
+    overflow: visible;
+  }
+}
+
+.container {
+  position: absolute;
+}
+
+/* THE BIG CLOUDS AT THE BACK */
+
+.cloud_l,
+.cloud_l2,
+.cloud_l3,
+.cloud_l4 {
+  display: flex;
+  position: absolute;
+  top: -35px;
+}
+
+.cloud_l {
+  /* left: 320px; */
+  /* left: calc(50% - 100px); */
+  left: 25%;
+}
+
+.cloud_l2 {
+  /* left: 10px; */
+  /* left: calc(1% + 100px); */
+  left: 0;
+}
+
+.cloud_l3 {
+  /* left: 600px; */
+  /* left: calc(100% - 300px); */
+  left: 50%;
+}
+
+.cloud_l4 {
+  /* left: 600px; */
+  /* left: calc(100% - 300px); */
+  left: 75%;
+}
+
+.cloud_l > *,
+.cloud_l2 > *,
+.cloud_l3 > *,
+.cloud_l4 > * {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  z-index: -5;
+}
+
+.cl1 {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  left: -40px;
+  top: 20px;
+}
+
+.cl1::before {
+  content: '';
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 30px;
+  left: -15px;
+  z-index: 7;
+}
+
+.cl1::after {
+  content: '';
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 1px;
+  left: 40px;
+  z-index: 7;
+}
+
+.cl2 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.cl2::before {
+  content: '';
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 20px;
+  left: -55px;
+  z-index: 7;
+}
+
+.cl2::after {
+  content: '';
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  top: -5px;
+  left: 60px;
+  z-index: 7;
+}
+
+.cl3 {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  top: 20px;
+  left: 50px;
+}
+
+.cl3::before {
+  content: '';
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  top: -5px;
+  left: -40px;
+  z-index: 7;
+}
+
+.cl3::after {
+  content: '';
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  z-index: 7;
+}
+
+/* THE BIG moving CLOUDS IN THE MIDDLE */
+
+.cls3,
+.cls31 {
+  z-index: -3;
+  top: -5px;
+  left: var(--left);
+  animation: bigzoom 30s linear infinite;
+}
+
+.cls31 {
+  left: var(--left);
+  animation: bigzoom 20s linear infinite;
+}
+
+.cl31 {
+  height: 60px;
+  width: 50px;
+  transform: rotate(-15deg);
+}
+
+.cl31::before {
+  height: 40px;
+  width: 35px;
+  left: -20px;
+  top: 17px;
+  transform: rotate(-15deg);
+}
+
+.cl31::after {
+  height: 90px;
+  width: 70px;
+  left: 20px;
+  top: -10px;
+  transform: rotate(10deg);
+}
+
+.cl32 {
+  width: 60px;
+  height: 80px;
+  left: 30px;
+  transform: rotate(15deg);
+}
+
+.cl32::before {
+  width: 80px;
+  height: 90px;
+  top: 0;
+  left: -60px;
+  transform: rotate(-15deg);
+}
+
+.cl32::after {
+  width: 40px;
+  height: 50px;
+  left: 40px;
+  top: 20px;
+}
+
+.cloud-s::before {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: -17px;
+  left: 12px;
+}
+
+.cloud_s::after {
+  content: '';
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  top: -30px;
+  left: 40px;
+}
+
+.cl_white,
+.cl_white::after,
+.cl_white::before {
+  background-color: #ffffff;
+  box-shadow: 0 0 2px 2px #ffffff;
+}
+
+.cl_whitish,
+.cl_whitish::after,
+.cl_whitish::before {
+  background-color: #eeeeee;
+  box-shadow: 0 0 2px 2px #eeeeee;
+}
+
+.cl_gray,
+.cl_gray::after,
+.cl_gray::before {
+  background-color: #dddddd;
+  box-shadow: 0 0 2px 2px #dddddd;
+}
+
+/* THE SMALL CLOUDS AT THE FRONT */
+
+.cloud_s,
+.cloud_s::before,
+.cloud_s::after {
+  position: absolute;
+  z-index: -2;
+}
+
+.cloud_s {
+  height: 45px;
+  width: 115px;
+  left: 30px;
+  top: 35px;
+  border-radius: 20% / 50%;
+  animation: zoom 5s linear infinite;
+}
+
+.cs2 {
+  top: 20px;
+  animation: zoom 7s linear infinite;
+}
+
+.cs3 {
+  top: 50px;
+  animation: zoom 9s linear infinite;
+}
+
+@keyframes zoom {
+  0% {
+    left: 50%;
+    opacity: 1;
+  }
+  40% {
+    left: 80%;
+    opacity: 1;
+  }
+  50% {
+    left: 90%;
+    opacity: 0;
+  }
+  55% {
+    left: 0;
+    opacity: 0;
+  }
+  65% {
+    left: 10%;
+    opacity: 1;
+  }
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes bigzoom {
+  0% {
+    left: 50%;
+    opacity: 1;
+  }
+  40% {
+    left: 80%;
+    opacity: 1;
+  }
+  50% {
+    left: 90%;
+    opacity: 0;
+  }
+  55% {
+    left: 0;
+    opacity: 0;
+  }
+  60% {
+    left: 10%;
+    opacity: 1;
+  }
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}

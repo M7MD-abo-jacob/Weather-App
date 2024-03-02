@@ -1,0 +1,44 @@
+.start {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 15%;
+  inset-inline-start: 0.5rem;
+  inset-inline-end: 0.5rem;
+  padding: 10% 4%;
+  border-radius: 20px;
+  background-color: #0002;
+  background-image: linear-gradient(#113377aa, #11339922);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3rem;
+  letter-spacing: 1px;
+}
+
+.ssvvgg {
+  width: 50%;
+  margin: 1rem auto;
+  animation: looking 3s ease-in-out infinite;
+}
+
+@keyframes looking {
+  0% {
+    transform: translate(-30%) rotate(30deg);
+  }
+  50% {
+    transform: translate(30%) rotate(90deg);
+  }
+  100% {
+    transform: translate(-30%) rotate(30deg);
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .start {
+    padding: 3% 3%;
+  }
+  .ssvvgg {
+    width: 30%;
+  }
+}
