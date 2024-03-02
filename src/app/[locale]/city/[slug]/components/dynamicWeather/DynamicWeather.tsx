@@ -21,7 +21,7 @@ function DynamicWeather({ data }: any) {
     }
   }, [typeof window]);
 
-  const status = (statusCode) => {
+  const status = (statusCode: string) => {
     if (rainy.includes(statusCode)) {
       return <Rain />;
     } else if (snowy.includes(statusCode)) {
@@ -63,7 +63,7 @@ function DynamicWeather({ data }: any) {
       {/* middle long moving clouds */}
       <div
         className={`${styles.cloud_l} ${styles.cls3}`}
-        style={{ '--left': '100px' }}>
+        style={{ left: '100px' }}>
         <div
           className={`${styles.cl1} ${styles.cl31} ${styles.cl_whitish}`}></div>
         <div
@@ -71,7 +71,7 @@ function DynamicWeather({ data }: any) {
       </div>
       <div
         className={`${styles.cloud_l} ${styles.cls31}`}
-        style={{ '--left': '400px' }}>
+        style={{ left: '400px' }}>
         <div
           className={`${styles.cl1} ${styles.cl31} ${styles.cl_whitish}`}></div>
         <div

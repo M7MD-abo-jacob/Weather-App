@@ -1,10 +1,13 @@
-import styles from "./WeekDay.module.css";
+import styles from './WeekDay.module.css';
 
-function WeekDay({ data }) {
+function WeekDay({ data }: { data: any }) {
   const date = new Date(data.date);
 
-  const options = { weekday: "short", day: "numeric", month: "numeric" };
-  const day = Intl.DateTimeFormat("en", options).format(date);
+  const day = Intl.DateTimeFormat('en', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'numeric',
+  }).format(date);
 
   return (
     <div className={styles.day}>
@@ -13,8 +16,8 @@ function WeekDay({ data }) {
         {data.temp_max}°/{data.temp_min}°
       </p>
       <div className={styles.day_status}>
-        <img src={data.icon1} alt={"day weather status icon"} />{" "}
-        <img src={data.icon2} alt={"night weather status icon"} />
+        <img src={data.icon1} alt={'day weather status icon'} />{' '}
+        <img src={data.icon2} alt={'night weather status icon'} />
       </div>
     </div>
   );

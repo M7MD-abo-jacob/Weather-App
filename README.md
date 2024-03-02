@@ -25,7 +25,7 @@
 
 <!-- TODO:
 - right cities???
-- types
+- types , custom styles vars
 - css
 - access
 - translations

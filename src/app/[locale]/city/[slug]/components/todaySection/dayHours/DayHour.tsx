@@ -1,12 +1,12 @@
-import styles from "./DayHour.module.css";
-import { BsDropletFill } from "react-icons/bs";
+import styles from './DayHour.module.css';
+import { BsDropletFill } from 'react-icons/bs';
 
-function DayHour({ data }) {
+function DayHour({ data }: { data: any }) {
   return (
     <div className={styles.hour}>
       <div>
         <p>{data.time}</p>
-        <img src={data.icon} alt={"weather status icon"} />
+        <img src={data.icon} alt={'weather status icon'} />
         <p>{data.temp}°</p>
         <p>
           <BsDropletFill /> {data.humidity}%

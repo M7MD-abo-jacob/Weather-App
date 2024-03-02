@@ -1,8 +1,8 @@
-import DayHours from "./dayHours/DayHours";
-import WeatherStatus from "./weatherStatus/WeatherStatus";
-import styles from "./TodaySection.module.css";
+import DayHours from './dayHours/DayHours';
+import WeatherStatus from './weatherStatus/WeatherStatus';
+import styles from './TodaySection.module.css';
 
-const TodaySection = ({ currentWeather, hoursForcast }) => {
+const TodaySection = ({ currentWeather, hoursForcast }: any) => {
   return (
     <section className="today">
       <div className={`${styles.today_inner} ${styles.today_inner1}`}>

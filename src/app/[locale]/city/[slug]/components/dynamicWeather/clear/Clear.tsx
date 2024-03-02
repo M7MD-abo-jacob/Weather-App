@@ -6,12 +6,11 @@ function Clear({ dayTime }: { dayTime: boolean }) {
   const shadow = dayTime
     ? `0 0 3rem 0.9rem ${color}, 0 0 1rem 0.1rem ${color}`
     : `0 0 0.9rem 0.3rem ${color}`;
-
   return (
     <div
       className={`${styles.sun} ${dayTime ? '' : styles.moon}`}
       style={{
-        '--sun-color': color,
+        backgroundColor: color,
         boxShadow: shadow,
       }}></div>
   );

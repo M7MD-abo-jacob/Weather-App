@@ -155,12 +155,12 @@
 .cls31 {
   z-index: -3;
   top: -5px;
-  left: var(--left);
+  /* left: var(--left); */
   animation: bigzoom 30s linear infinite;
 }
 
 .cls31 {
-  left: var(--left);
+  /* left: var(--left); */
   animation: bigzoom 20s linear infinite;
 }
 

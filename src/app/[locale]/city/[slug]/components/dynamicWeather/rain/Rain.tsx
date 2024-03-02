@@ -21,16 +21,14 @@ export default Rain;
 function makeRainDrops(width: any, height: any) {
   const particles = [];
   for (let i = 0; i < width; i += 25) {
+    const particleStyles: React.CSSProperties & { [key: string]: string } = {
+      '--particle-sp': `${getRandomInt(10, 30)}`,
+      '--particle-left': `${getRandomInt(0, width - 20)}px`,
+      '--particle-top': `${getRandomInt(-170, 20)}px`,
+      '--h': `${height}px`,
+    };
     particles.push(
-      <span
-        className={styles.drop}
-        style={{
-          '--particle-sp': `${getRandomInt(10, 30)}`,
-          '--particle-left': `${getRandomInt(0, width - 20)}px`,
-          '--particle-top': `${getRandomInt(-170, 20)}px`,
-          '--h': `${height}px`,
-        }}
-        key={i}></span>,
+      <span className={styles.drop} style={particleStyles} key={i}></span>,
     );
   }
   return particles;

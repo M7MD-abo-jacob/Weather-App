@@ -1,4 +1,7 @@
+'use server';
+
 import axios from 'axios';
+import { CurrentWeather, DaysForcast, HoursForcast } from '../../types';
 
 export default async function getWeatherStatus(slug: string) {
   const BASE_URL = new URL('https://api.openweathermap.org/data/2.5/');
@@ -15,7 +18,7 @@ export default async function getWeatherStatus(slug: string) {
   hoursUrl.searchParams.set('units', 'metric');
   hoursUrl.searchParams.set('q', newSlug); // didn't work with api
   // hoursUrl += `&q=${newSlug}`;
-
+  // TODO: comments
   // gets 5 days weather
   let daysUrl = new URL('forecast', BASE_URL);
   daysUrl.searchParams.set('appid', apiKey);
@@ -35,8 +38,18 @@ export default async function getWeatherStatus(slug: string) {
   } catch (error) {
     console.log('error', error);
   }
-  const days = [];
-  const dts = [];
+
+  interface Day {
+    date: any;
+    temp_max: any;
+    temp_min: any;
+    status: any;
+    icon1: any;
+    icon2: any;
+  }
+
+  const days: Day[] = [];
+  const dts: any[] = [];
   const list = forcastData.list;
 
   // getting heighest and lowest for each day
@@ -58,7 +71,14 @@ export default async function getWeatherStatus(slug: string) {
       }
       continue;
     } else {
-      let day = {}; // make day first time
+      let day: Day = {
+        date: '',
+        temp_max: '',
+        temp_min: '',
+        status: '',
+        icon1: '',
+        icon2: '',
+      }; // make day first time
       dts.push(list[i].dt_txt.split(' ')[0]); //if new date, add data
       day.date = list[i].dt_txt.split(' ')[0];
       day.temp_max = list[i].main.temp_max.toFixed();
@@ -70,9 +90,9 @@ export default async function getWeatherStatus(slug: string) {
     }
   }
 
-  const dayHours = [];
+  const dayHours: DaysForcast[] = [];
   for (let i = 0; i < 8; i++) {
-    let dayHour = {};
+    let dayHour: any = {};
     let date = new Date(list[i].dt_txt);
     let hours = date.getHours();
     var ampm = hours >= 12 ? 'PM' : 'AM';
@@ -87,7 +107,12 @@ export default async function getWeatherStatus(slug: string) {
     dayHours.push(dayHour);
   }
 
-  const data = {
+  const data: {
+    hoursForcast: HoursForcast[];
+    daysForcast: DaysForcast[];
+    currentWeather: CurrentWeather;
+    setStatus: string;
+  } = {
     hoursForcast: dayHours,
     daysForcast: days,
     currentWeather: weatherData,

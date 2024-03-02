@@ -22,17 +22,15 @@ export default Snow;
 function makeSnowFlakes(width: any, height: any) {
   const particles = [];
   for (let i = 0; i < width; i += 25) {
+    const particleStyles: React.CSSProperties & { [key: string]: string } = {
+      '--particle-sp': `${getRandomInt(5, 40)}`,
+      '--particle-left': `${getRandomInt(0, width - 20)}px`,
+      '--particle-top': `${getRandomInt(-90, 30)}px`,
+      '--particle-size': `${getRandomInt(10, 50)}px`,
+      '--h': `${height}px`,
+    };
     particles.push(
-      <span
-        className={styles.flake}
-        style={{
-          '--particle-sp': `${getRandomInt(5, 40)}`,
-          '--particle-left': `${getRandomInt(0, width - 20)}px`,
-          '--particle-top': `${getRandomInt(-90, 30)}px`,
-          '--particle-size': `${getRandomInt(10, 50)}px`,
-          '--h': `${height}px`,
-        }}
-        key={i}>
+      <span className={styles.flake} style={particleStyles} key={i}>
         <BsSnow2 />
       </span>,
     );

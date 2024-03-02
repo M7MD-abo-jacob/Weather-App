@@ -1,8 +1,9 @@
 import { FaWind } from 'react-icons/fa';
 import { BsDropletFill } from 'react-icons/bs';
 import styles from './WeatherStatus.module.css';
+import { CurrentWeather } from '../../../../../../../../types';
 
-function WeatherStatus({ data }: { data: any }) {
+function WeatherStatus({ data }: { data: CurrentWeather }) {
   return (
     <div className={styles.weather_status}>
       <div className={styles.left}>
