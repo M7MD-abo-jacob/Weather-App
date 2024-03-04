@@ -1,0 +1,7 @@
+.DayHours {
+  display: grid;
+  grid: 1fr / auto-flow;
+  overflow-x: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-x;
+}

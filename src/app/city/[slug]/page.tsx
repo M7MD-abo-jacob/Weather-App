@@ -1,7 +1,7 @@
-import getWeatherStatus from '@/lib/getWeatherStatus';
-import DynamicWeather from './components/dynamicWeather/DynamicWeather';
-import WeekSection from './components/weekSection/WeekSection';
-import TodaySection from './components/todaySection/TodaySection';
+import DynamicWeather from '@/components/city/dynamicWeather/DynamicWeather';
+import TodaySection from '@/components/city/todaySection/TodaySection';
+import WeekSection from '@/components/city/weekSection/WeekSection';
+import getWeatherStatus from '@/lib/api/getWeatherStatus';
 
 export default async function WeatherPage({
   params,
@@ -15,7 +15,7 @@ export default async function WeatherPage({
     <>
       {res && (
         <>
-          <DynamicWeather data={res.setStatus} />
+          <DynamicWeather data={res.status} />
           <main>
             <TodaySection
               currentWeather={res.currentWeather}
@@ -38,10 +38,33 @@ export async function generateMetadata({
     .replaceAll('%2B', ' ')
     .replaceAll('%20', ' ')
     .replaceAll('%2C', ', ');
-  // TODO: description
   return {
     title: `Weather Status for ${slug}`,
-    description:
-      'Weather status for the next 24 hours, and the next 5 days forcast.',
+    description: `${slug} Weather. Check hourly forecasts, wind status, and more for weather conditions.`,
+    keywords: [
+      slug,
+      `${slug} Weather`,
+      `${slug} Forecast`,
+      `${slug} Temperature`,
+
+      'Mohammad Kikhia',
+      'محمد كيخيا',
+      'Weather forecast',
+      'Dynamic Weather',
+      'Temperature ranges',
+      'Summer weather trends',
+      'Outdoor activities',
+      'Weather radar',
+      'rain',
+      'snow',
+      'sun',
+      'moon',
+      'clouds',
+      'NextJS',
+      'Syria',
+      'سوريا',
+      'Latakia',
+      'اللاذقية',
+    ],
   };
 }

@@ -24,9 +24,5 @@
 # THANKS FOR STOPPING BY. ❤
 
 <!-- TODO:
-- right cities???
-- types , custom styles vars
-- css
-- access
-- translations
+- access - deg, status-img,
  -->

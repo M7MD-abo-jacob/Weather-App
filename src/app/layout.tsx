@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import Header from './components/Header';
-import './globals.css';
 import { Viewport } from 'next';
+import React, { ReactNode } from 'react';
+import Search from '@/components/header/Search';
+import './globals.css';
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -11,7 +11,9 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en" dir="ltr">
       <body className="">
-        <Header />
+        <header>
+          <Search />
+        </header>
         {children}
       </body>
     </html>
@@ -28,9 +30,16 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 export async function generateMetadata() {
-  return {
+  const metaObject = {
     title: 'Dynamic Weather App | Mohammad Kikhia',
-    description: 'TODO:',
+    description:
+      'Get accurate weather forecasts, live updates, and more on our comprehensive weather portal. Plan your day with confidence!',
+    author: 'Mohammad Kikhia - محمد كيخيا',
+    img: '/assets/main.png',
+  };
+  return {
+    title: metaObject.title,
+    description: metaObject.description,
     robots: {
       index: true,
       follow: true,
@@ -43,65 +52,49 @@ export async function generateMetadata() {
         'max-image-preview': 'large',
       },
     },
-    applicationName: 'title',
+    applicationName: metaObject.title,
     keywords: [
+      metaObject.author,
+      metaObject.title,
       'Mohammad Kikhia',
       'محمد كيخيا',
-      'Frontend Developer',
-      'مطور ويب',
-      'ReactJS',
-      'رياكت جي اس',
+      'Weather forecast',
+      'Dynamic Weather',
+      'Temperature ranges',
+      'Summer weather trends',
+      'Outdoor activities',
+      'Weather radar',
+      'rain',
+      'snow',
+      'sun',
+      'moon',
+      'clouds',
       'NextJS',
-      'نيكست جي اس',
-      'Web Development',
-      'تطوير الويب',
-      'JavaScript',
-      'TypeScript',
-      'HTML',
-      'CSS',
       'Syria',
       'سوريا',
       'Latakia',
-      'Lattakia',
       'اللاذقية',
-      'User Interface',
-      'User Experience',
-      'UI',
-      'UX',
-      'Responsive Design',
-      'Version Control',
-      'Git',
-      'GitHub',
-      'Node.js',
-      'JSON',
-      'REST API',
-      'Redux',
-      'SSR',
-      'Server Side Rendering',
-      'SEO',
-      'Search Engine Optimization',
     ],
     authors: [
-      { name: 'author' },
-      { name: 'author', url: 'https://mohammad-kikhia.vercel.app' },
+      { name: metaObject.author, url: 'https://mohammad-kikhia.vercel.app' },
     ],
-    category: 'technology',
-    publisher: 'author',
-    creator: 'author',
+    category: 'weather',
+    publisher: metaObject.author,
+    creator: metaObject.author,
     twitter: {
-      card: 'title',
-      title: 'title',
-      description: 'description',
-      images: ['../favicon.svg'],
+      card: metaObject.title,
+      title: metaObject.title,
+      description: metaObject.description,
+      images: [metaObject.img],
     },
     openGraph: {
-      title: 'title',
-      description: 'description',
-      siteName: 'title',
+      title: metaObject.title,
+      description: metaObject.description,
+      siteName: metaObject.title,
       url: 'https://dynamic-weather-app-next13.vercel.app/',
       images: [
         {
-          url: '../favicon.svg',
+          url: metaObject.img,
           width: 800,
           height: 600,
         },

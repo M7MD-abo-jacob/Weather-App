@@ -1,0 +1,38 @@
+.weather_status {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: center;
+  background-color: #0001;
+  border-radius: 10px;
+  padding-inline: 0.3rem;
+}
+
+.left {
+  text-align: start;
+}
+
+.right {
+  text-align: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.right p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.temp {
+  font-size: 3rem;
+  font-weight: 700;
+}

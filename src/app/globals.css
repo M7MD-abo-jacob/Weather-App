@@ -14,34 +14,48 @@ body {
 }
 
 html {
+  --blue: #000077;
+  --dark-blue: #000033;
+  --light-blue: #70d2ff;
+  --accent-blue: #333399;
+
   text-align: center;
   /* Hide scrollbar for IE, Edge and Firefox */
   /* IE and Edge */
-  -ms-overflow-style: none;
+  /* -ms-overflow-style: none; */
   /* Firefox */
-  scrollbar-width: none;
+  /* scrollbar-width: 1rem; */
   font-family: 'Mali', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-transform: capitalize;
+  font-size: 15px;
   font-weight: 400;
 }
 
 @media screen and (min-width: 700px) {
   html {
-    font-size: 1.2rem;
+    font-size: 19px;
   }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 
+::-webkit-scrollbar-thumb {
+  background-color: var(--light-blue);
+  border-radius: 10000px;
+}
 ::-webkit-scrollbar {
-  display: none;
+  background-color: var(--blue);
+  height: 4px;
+  width: 4px;
+  padding: 1px;
+  border-radius: 10000px;
 }
 
 body {
-  color: #fff;
-  background-image: linear-gradient(rgb(112, 210, 255) 10%, #007 100%);
+  color: white;
+  background-image: linear-gradient(var(--light-blue) 10%, var(--blue) 100%);
   height: 100dvh;
   max-width: 1200px;
   margin: 0 auto !important;
@@ -51,7 +65,10 @@ body {
 }
 
 .night {
-  background-image: linear-gradient(#003 10%, #339 100%);
+  background-image: linear-gradient(
+    var(--dark-blue) 10%,
+    var(--accent-blue) 100%
+  );
 }
 
 .bold {
@@ -72,7 +89,7 @@ main p,
 main h1,
 main h2,
 main h3 {
-  text-shadow: 0 6px 5px #003;
+  text-shadow: 0 6px 5px var(--dark-blue);
 }
 
 main .error,
@@ -83,7 +100,7 @@ main .loading {
 }
 main .loading svg {
   font-size: 5rem;
-  filter: drop-shadow(0 0 6px #003);
+  filter: drop-shadow(0 0 6px var(--dark-blue));
   animation: spin 3s linear infinite;
 }
 @keyframes spin {

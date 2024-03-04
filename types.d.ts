@@ -1,4 +1,9 @@
-import { Url } from 'url';
+export type CustomStyles = React.CSSProperties & { [key: string]: string };
+
+export type SearchResult = {
+  value: string;
+  label: string;
+};
 
 export type City = {
   country: string;
@@ -8,57 +13,48 @@ export type City = {
   formatted: string;
 };
 
-export type HoursForcast =
-  | {
-      time: string;
-      status: string;
-      icon: Url;
-      temp: string;
-      humidity: number;
-    }
-  | {};
-export type DaysForcast =
-  | {
-      date: string;
-      temp_max: string;
-      temp_min: string;
-      status: string;
-      icon1: Url;
-      icon2: Url;
-    }
-  | {};
+export type HoursForcast = {
+  time: string;
+  status: string;
+  icon: string;
+  temp: string;
+  humidity: number;
+};
+
+export type DayForcast = {
+  date: string;
+  temp_max: number;
+  temp_min: number;
+  status: string;
+  icon1: string;
+  icon2: string;
+};
+
 export type CurrentWeather = {
-  id: 170654;
-  name: 'Damascus';
+  id: number;
+  name: string;
   sys: {
-    country: 'SY';
-    sunrise: 1709352116;
-    sunset: 1709393536;
+    country: string;
+    sunrise: number;
+    sunset: number;
   };
   main: {
-    temp: 19.42;
-    feels_like: 17.97;
-    humidity: 21;
+    temp: number;
+    feels_like: number;
+    humidity: number;
   };
-  wind: { speed: 2.57 };
-  weather: [{ id: 800; main: 'Clear'; description: 'clear sky'; icon: '01d' }];
-  visibility: 10000;
-  clouds: { all: 0 };
+  wind: { speed: number };
+  weather: [{ id: number; main: string; description: string; icon: string }];
+  clouds: { all: number };
+  visibility: number;
 };
 
 export type WeatherData = {
-  // weather: [ { id: 800, main: 'Clear', description: 'clear sky', icon: '01d' } ],
   weather: [{ id: int; main: string; description: string; icon: string }];
-  // main: {
-  //   temp: 19.42,
-  //   feels_like: 17.94,
-  //   temp_min: 19.42,
-  //   temp_max: 19.42,
-  //   pressure: 1013,
-  //   humidity: 20,
-  //   sea_level: 1013,
-  //   grnd_level: 933
-  // },
+  visibility: number;
+  wind: { speed: number };
+  clouds: { all: number };
+  dt: number;
   main: {
     temp: number;
     feels_like: number;
@@ -69,21 +65,6 @@ export type WeatherData = {
     sea_level: number;
     grnd_level: number;
   };
-  // visibility: 10000,
-  visibility: number;
-  // wind: { speed: 2.14, deg: 165, gust: 2.59 },
-  wind: { speed: number };
-  // clouds: { all: 0 },
-  clouds: { all: number };
-  // dt: 1709378965,
-  dt: number;
-  // sys: {
-  //   type: 1,
-  //   id: 7605,
-  //   country: 'SY',
-  //   sunrise: 1709352116,
-  //   sunset: 1709393536
-  // },
   sys: {
     type: number;
     id: number;
@@ -91,10 +72,6 @@ export type WeatherData = {
     sunrise: number;
     sunset: number;
   };
-  // timezone: 10800,
-  // id: 170654,
-  // name: 'Damascus',
-  // cod: 200
   timezone: number;
   id: number;
   name: string;
@@ -102,31 +79,7 @@ export type WeatherData = {
 };
 
 export type ForecastData = {
-  // cnt: 40;
   cnt: number;
-  // list: [
-  //   {
-  //     dt: 1709380800,
-  //     main: {
-  //       temp: 19.42,
-  //       feels_like: 17.97,
-  //       temp_min: 18.53,
-  //       temp_max: 19.42,
-  //       pressure: 1012,
-  //       sea_level: 1012,
-  //       grnd_level: 933,
-  //       humidity: 21,
-  //       temp_kf: 0.89
-  //     },
-  //     weather: [ { id: 800, main: 'Clear', description: 'clear sky', icon: '01d' } ],
-  //     clouds: { all: 0 },
-  //     wind: { speed: 2.1, deg: 185, gust: 3.3 },
-  //     visibility: 10000,
-  //     pop: 0,
-  //     sys: { pod: 'd' },
-  //     dt_txt: '2024-03-02 12:00:00'
-  //   }
-  // ];
   list: [
     {
       dt: number;
@@ -150,16 +103,6 @@ export type ForecastData = {
       dt_txt: string;
     },
   ];
-  // city: {
-  //   id: 170654;
-  //   name: 'Damascus';
-  //   coord: { lat: 33.5102; lon: 36.2913 };
-  //   country: 'SY';
-  //   population: 1569394;
-  //   timezone: 10800;
-  //   sunrise: 1709352116;
-  //   sunset: 1709393536;
-  // };
   city: {
     id: number;
     name: string;
