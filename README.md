@@ -22,7 +22,3 @@
 ## Check out [my portfolio](https://mohammad-kikhia.vercel.app/) for more.
 
 # THANKS FOR STOPPING BY. ❤
-
-<!-- TODO:
-- access - deg, status-img,
- -->

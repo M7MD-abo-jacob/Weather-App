@@ -8,11 +8,17 @@ function DayHour({ data }: { data: HoursForcast }) {
     <li className={styles.hour}>
       <div>
         <p>{data.time}</p>
-        {/* TODO: alt */}
-        <Image src={data.icon} alt="weather status" width={30} height={30} />
-        <p>{data.temp}°</p>
+        <Image src={data.icon} alt={data.status} width={30} height={30} />
         <p>
-          <BsDropletFill /> {data.humidity}%
+          {data.temp}
+          <span aria-label="degrees celsius at the morning">°</span>
+        </p>
+        <p>
+          <span aria-label="humidity">
+            <BsDropletFill />
+          </span>{' '}
+          {data.humidity}
+          <span aria-label="percent">%</span>
         </p>
       </div>
     </li>

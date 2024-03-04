@@ -2,6 +2,7 @@ import DynamicWeather from '@/components/city/dynamicWeather/DynamicWeather';
 import TodaySection from '@/components/city/todaySection/TodaySection';
 import WeekSection from '@/components/city/weekSection/WeekSection';
 import getWeatherStatus from '@/lib/api/getWeatherStatus';
+import getLongCountryName from '@/lib/getLongCountryName';
 
 export default async function WeatherPage({
   params,
@@ -34,18 +35,17 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const slug = params.slug
-    .replaceAll('%2B', ' ')
-    .replaceAll('%20', ' ')
-    .replaceAll('%2C', ', ');
+  const slug = decodeURIComponent(params.slug);
+  const longCountryName = getLongCountryName(slug.split('+')[1]);
+  let newSlug = `${slug.split('+')[0]}, ${longCountryName}`;
   return {
-    title: `Weather Status for ${slug}`,
-    description: `${slug} Weather. Check hourly forecasts, wind status, and more for weather conditions.`,
+    title: `Weather Status for ${newSlug}`,
+    description: `${newSlug} Weather. Check hourly forecasts, wind status, and more for weather conditions.`,
     keywords: [
-      slug,
-      `${slug} Weather`,
-      `${slug} Forecast`,
-      `${slug} Temperature`,
+      newSlug,
+      `${newSlug} Weather`,
+      `${newSlug} Forecast`,
+      `${newSlug} Temperature`,
 
       'Mohammad Kikhia',
       'محمد كيخيا',
